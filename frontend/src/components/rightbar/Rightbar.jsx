@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 
 
-axios.defaults.baseURL = 'http://localhost:8800/api';
+axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;

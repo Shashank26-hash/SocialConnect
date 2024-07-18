@@ -5,7 +5,7 @@ import "./feed.css";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
-axios.defaults.baseURL = 'http://localhost:8800/api';
+axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
 
 
 export default function Feed({ username }) {

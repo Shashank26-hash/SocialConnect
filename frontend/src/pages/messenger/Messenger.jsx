@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-axios.defaults.baseURL = 'http://localhost:8800/api';
+axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
 
 
 export default function Messenger() {

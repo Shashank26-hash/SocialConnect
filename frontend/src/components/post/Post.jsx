@@ -6,7 +6,7 @@ import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-axios.defaults.baseURL = 'http://localhost:8800/api';
+axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
 
 
 export default function Post({ post }) {
