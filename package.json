@@ -8,7 +8,9 @@
     "start-server" : "cd api && npm run start", 
     "install-frontend" : "cd frontend && npm install", 
     "build-frontend" : "cd frontend && npm run build", 
-    "start-frontend" : "cd frontend && npm run start"
+    "start-frontend" : "cd frontend && npm run start", 
+    "install-socket" : "cd socket && npm install", 
+    "start-socket" : "cd socket && npm run start"
   },
   "keywords": [],
   "author": "",
