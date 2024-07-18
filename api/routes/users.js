@@ -42,6 +42,7 @@ router.delete("/:id", async (req, res) => {
 
 //get a user
 router.get("/", async (req, res) => {
+  
   const userId = req.query.userId;
   const username = req.query.username;
   try {
@@ -54,6 +55,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 //get friends
 router.get("/friends/:userId", async (req, res) => {
