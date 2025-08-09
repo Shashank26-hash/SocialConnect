@@ -8,8 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
-
+axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
 export default function Messenger() {
   const [conversations, setConversations] = useState([]);
@@ -23,7 +22,7 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8900");
+    socket.current = io("http://localhost:8900");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,

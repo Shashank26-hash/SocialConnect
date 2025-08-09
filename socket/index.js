@@ -1,10 +1,19 @@
+const express = require("express");
+const http = require("http");
+const { Server } = require("socket.io");
+
+const app = express();
+const server = http.createServer(app);
+
 const PORT = process.env.PORT || 8900;
-const io = require("socket.io")(PORT, {
+
+const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:3000",
       "https://master--connecc-social.netlify.app/",
     ],
+    methods: ["GET", "POST"],
   },
 });
 
@@ -48,4 +57,8 @@ io.on("connection", (socket) => {
     removeUser(socket.id);
     io.emit("getUsers", users);
   });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
