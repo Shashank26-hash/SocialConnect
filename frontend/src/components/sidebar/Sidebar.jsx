@@ -4,7 +4,7 @@ import CloseFriend from "../closeFriend/CloseFriend";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://localhost:8800/api";
+axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
 export default function Sidebar() {
   const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ export default function Sidebar() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/users/all");
+        const res = await axios.get("/users/all");
         setUsers(res.data);
         console.log(res.data);
       } catch (error) {
@@ -20,6 +20,11 @@ export default function Sidebar() {
       }
     };
     fetchUsers();
+    console.log("Component mounted");
+
+    return () => {
+      console.log("MyComponent unmounted");
+    };
   }, []);
   return (
     <div className="sidebar">
