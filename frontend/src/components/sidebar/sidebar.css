@@ -1,7 +1,8 @@
 .sidebar {
-  flex: 3;
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
+  flex: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: 50px;
 }
@@ -36,22 +37,14 @@
   margin-right: 15px;
 }
 
-.sidebarButton {
-  width: 150px;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: 500;
-}
-
 .sidebarHr {
   margin: 20px 0;
 }
 
 .sidebarFriendList {
+  width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
+  overflow-y: scroll;
 }
-
-

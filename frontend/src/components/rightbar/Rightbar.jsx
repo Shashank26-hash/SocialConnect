@@ -1,14 +1,11 @@
 import "./rightbar.css";
-import { Users } from "../../dummyData";
-import Online from "../online/Online";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 
-
-axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
+axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -21,8 +18,10 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
-        setFriends(friendList.data);
+        if (user) {
+          const friendList = await axios.get("/users/friends/" + user._id);
+          setFriends(friendList.data);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -44,8 +43,7 @@ export default function Rightbar({ user }) {
         dispatch({ type: "FOLLOW", payload: user._id });
       }
       setFollowed(!followed);
-    } catch (err) {
-    }
+    } catch (err) {}
   };
 
   const HomeRightbar = () => {
@@ -59,11 +57,6 @@ export default function Rightbar({ user }) {
         </div>
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
-        <ul className="rightbarFriendList">
-          {Users.map((u) => (
-            <Online key={u.id} user={u} />
-          ))}
-        </ul>
       </>
     );
   };

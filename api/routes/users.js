@@ -42,7 +42,6 @@ router.delete("/:id", async (req, res) => {
 
 //get a user
 router.get("/", async (req, res) => {
-  
   const userId = req.query.userId;
   const username = req.query.username;
   try {
@@ -55,7 +54,6 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 //get friends
 router.get("/friends/:userId", async (req, res) => {
@@ -71,7 +69,7 @@ router.get("/friends/:userId", async (req, res) => {
       const { _id, username, profilePicture } = friend;
       friendList.push({ _id, username, profilePicture });
     });
-    res.status(200).json(friendList)
+    res.status(200).json(friendList);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -118,6 +116,18 @@ router.put("/:id/unfollow", async (req, res) => {
     }
   } else {
     res.status(403).json("you cant unfollow yourself");
+  }
+});
+//get many users
+router.get("/all", async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 100; // default max 100 users
+    const users = await User.find({}, { password: 0, updatedAt: 0 }).limit(
+      limit
+    );
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
