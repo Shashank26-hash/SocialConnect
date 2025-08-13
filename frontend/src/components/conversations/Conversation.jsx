@@ -1,11 +1,12 @@
+// conversation.jsx
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./conversation.css";
 
-axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
+axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
-
-export default function Conversation({ conversation, currentUser }) {
+export default function Conversation({ conversation, currentUser, isActive }) {
   const [user, setUser] = useState(null);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -24,7 +25,7 @@ export default function Conversation({ conversation, currentUser }) {
   }, [currentUser, conversation]);
 
   return (
-    <div className="conversation">
+    <div className={`conversation ${isActive ? "active" : ""}`}>
       <img
         className="conversationImg"
         src={

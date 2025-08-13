@@ -1,3 +1,5 @@
+// Messenger.jsx
+
 import "./messenger.css";
 import Topbar from "../../components/topbar/Topbar";
 import Conversation from "../../components/conversations/Conversation";
@@ -22,7 +24,7 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("http://localhost:8900");
+    socket.current = io("https://socialconnect-socket.onrender.com");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -111,7 +113,11 @@ export default function Messenger() {
             <input placeholder="Search for friends" className="chatMenuInput" />
             {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
-                <Conversation conversation={c} currentUser={user} />
+                <Conversation
+                  conversation={c}
+                  currentUser={user}
+                  isActive={currentChat?._id === c._id}
+                />
               </div>
             ))}
           </div>

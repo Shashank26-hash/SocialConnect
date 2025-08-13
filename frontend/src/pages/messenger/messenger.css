@@ -1,14 +1,114 @@
-.messenger{
-    height: calc(100vh - 70px); 
-    display: flex; 
+/* messenger.css */
+
+.messenger {
+  height: calc(100vh - 70px);
+  display: flex;
+  background-color: #f5f5f5;
+  padding-top: 60px;
 }
 
-.chatMenu{
-    flex : 3.5; 
+.chatMenu,
+.chatBox,
+.chatOnline {
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
 }
-.chatBox{
-    flex: 5.5;
+
+.chatMenu {
+  flex: 3.5;
+  background-color: white;
 }
-.chatOnline{
-    flex: 3; 
+
+.chatBox {
+  flex: 5.5;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+}
+
+.chatBoxTop {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.chatBoxBottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chatMessageInput {
+  flex: 1;
+  resize: none;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: #f0f2f5;
+  font-size: 14px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.chatMessageInput:focus {
+  background-color: #e8eaed;
+}
+
+.chatSubmitButton {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chatSubmitButton:hover {
+  background-color: #145dbf;
+}
+
+/* No conversation text styling */
+.noConversationText {
+  font-size: 18px;
+  color: gray;
+  margin: auto;
+}
+
+.chatOnline {
+  flex: 3;
+  background-color: white;
+  border-right: none;
+}
+
+@media (max-width: 768px) {
+  .chatMenu {
+    flex: 4;
+  }
+  .chatOnline {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatMenu {
+    flex: 1;
+  }
+  .chatBox {
+    flex: 6;
+  }
 }

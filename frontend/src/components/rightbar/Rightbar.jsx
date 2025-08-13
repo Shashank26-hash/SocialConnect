@@ -1,3 +1,5 @@
+// Rightbar.css
+
 import "./rightbar.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";

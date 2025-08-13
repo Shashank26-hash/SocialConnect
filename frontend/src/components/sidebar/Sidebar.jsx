@@ -1,8 +1,12 @@
+// Sidebar.jsx
+
 import "./sidebar.css";
 import { RssFeed, Chat } from "@material-ui/icons";
-import CloseFriend from "../closeFriend/CloseFriend";
-import { useState, useEffect } from "react";
+
+import React, { useState, useEffect, Suspense } from "react";
 import axios from "axios";
+import { CircularProgress } from "@material-ui/core";
+const CloseFriend = React.lazy(() => import("../closeFriend/CloseFriend"));
 
 axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
@@ -44,9 +48,11 @@ export default function Sidebar() {
       </div>
       <div className="sidebarFriendList">
         <ul>
-          {users.map((u) => (
-            <CloseFriend key={u._id} user={u} />
-          ))}
+          <Suspense fallback={<CircularProgress />}>
+            {users.map((u) => (
+              <CloseFriend key={u._id} user={u} />
+            ))}
+          </Suspense>
         </ul>
       </div>
     </div>

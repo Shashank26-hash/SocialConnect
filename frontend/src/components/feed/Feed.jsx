@@ -1,3 +1,5 @@
+// Feed.jsx
+
 import { useContext, useEffect, useState } from "react";
 import Post from "../post/Post";
 import Share from "../share/Share";
@@ -5,8 +7,7 @@ import "./feed.css";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
-axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
-
+axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
 export default function Feed({ username }) {
   const [posts, setPosts] = useState([]);

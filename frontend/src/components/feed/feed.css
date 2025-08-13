@@ -1,7 +1,15 @@
-.feed{
-    flex:5.5
+.feed {
+  flex: 5.5;
+  background-color: #f0f2f5; /* Softer background like Facebook */
+  display: flex;
+  justify-content: center;
 }
 
-.feedWrapper{
-    padding: 20px;
+.feedWrapper {
+  width: 100%;
+  max-width: 600px; /* Keeps content centered and readable */
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between Share box and posts */
 }

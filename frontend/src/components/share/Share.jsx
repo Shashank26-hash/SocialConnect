@@ -1,3 +1,5 @@
+// share.jsx
+
 import "./share.css";
 import {
   PermMedia,
@@ -10,8 +12,7 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
-
-axios.defaults.baseURL = 'https://socialconnect-svj3.onrender.com/api';
+axios.defaults.baseURL = "https://socialconnect-svj3.onrender.com/api";
 
 export default function Share() {
   const { user } = useContext(AuthContext);

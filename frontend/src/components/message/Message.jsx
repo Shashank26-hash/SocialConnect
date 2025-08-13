@@ -1,3 +1,5 @@
+// message.jsx
+
 import "./message.css";
 import { format } from "timeago.js";
 
